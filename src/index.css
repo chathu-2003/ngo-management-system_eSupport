@@ -1,111 +1,142 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
 
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Envato Top Bar */
+.envato-bar {
+  background-color: #262626;
+  font-size: 13px;
 }
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+.envato-logo span {
+  color: #82b440;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+.btn-buy {
+  background-color: #82b440;
+  color: white;
+  border: none;
+  padding: 3px 12px;
   border-radius: 4px;
-  color: var(--text-h);
+  font-weight: 600;
+  font-size: 12px;
+}
+.btn-buy:hover {
+  background-color: #6e9b35;
+  color: white;
 }
 
-code {
+/* Info Sub Header Bar */
+.top-bar {
+  background-color: #1a1a1a;
+  color: #c5c5c5;
+  font-size: 13px;
+}
+.text-highlight {
+  color: #ff544a;
+  font-weight: bold;
+}
+.social-links a {
+  color: #8c8c8c;
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: #ff544a;
+}
+
+/* Main Navigation Bar */
+.navbar-brand img {
+  height: 45px;
+}
+.brand-text h4 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.brand-text p {
+  font-size: 10px;
+  color: #777;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.nav-link {
+  color: #333 !important;
+  font-weight: 600;
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+.nav-link.active, .nav-link:hover {
+  color: #ff544a !important;
+}
+.nav-icons .icon-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 18px;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-icons .icon-btn:hover {
+  color: #ff544a;
+}
+.btn-donate {
+  background-color: #ff544a;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 24px;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 1px;
+  transition: background 0.3s;
+}
+.btn-donate:hover {
+  background-color: #e0433a;
+}
+
+/* Hero Section (Background Image & Title) */
+.hero-section {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.hero-title {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero-highlight {
+  position: relative;
+  display: inline-block;
+}
+.hero-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 4px;
+  background-color: #ffaa1d;
+  border-radius: 2px;
+}
+.hero-desc {
+  font-size: 16px;
+  color: #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
