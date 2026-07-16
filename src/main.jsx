@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './pages/Home.jsx';
+import App from './App.jsx';
 // Bootstrap විතරක් import කරන්න
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Set browser tab title on app load
+document.title = 'EMPOWER HOPES HUMAINITARIAN NETWORK';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Home />
+    <App />
   </React.StrictMode>
 );

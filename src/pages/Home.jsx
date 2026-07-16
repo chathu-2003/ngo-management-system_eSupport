@@ -1,17 +1,47 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo.jpeg';
 import { 
   FaFacebookF, FaTwitter, FaPinterestP, FaLinkedinIn, FaMapMarkerAlt, 
   FaSearch, FaRegUser, FaHeart, FaHandshake, FaPlay, FaChevronUp,
-  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift
+  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt
 } from 'react-icons/fa';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('mission');
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   const tabContents = {
     mission: "Our Mission: There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or random aset words which don't look even slightly believable.",
     vision: "Our Vision: To establish a world where every individual has access to clean water, proper education, and fundamental human rights without any discrimination.",
     value: "Our Core Values: Transparency, accountability, empathy, and relentless commitment to the upliftment of marginalized children and societies globally."
+  };
+
+  const faqItems = [
+    {
+      id: 1,
+      question: "How Can I Get Help?",
+      answer: "Lorem ipsum dolor sit amet, vix an natum labitur eleifnd, mel am laoreet menandri. Ei justo complectitur duo. Ei mundi solet ut soletu possit quo."
+    },
+    {
+      id: 2,
+      question: "How Do I Become A Volunteer?",
+      answer: "Lorem ipsum dolor sit amet, vix an natum labitur eleifnd, mel am laoreet menandri. Ei justo complectitur duo."
+    },
+    {
+      id: 3,
+      question: "Where Do My Donations Go?",
+      answer: "Lorem ipsum dolor sit amet, vix an natum labitur eleifnd, mel am laoreet menandri. Ei justo complectitur duo."
+    },
+    {
+      id: 4,
+      question: "Is My Contribution Tax Deductible?",
+      answer: "Lorem ipsum dolor sit amet, vix an natum labitur eleifnd, mel am laoreet menandri. Ei justo complectitur duo."
+    }
+  ];
+
+  const toggleFaq = (index) => {
+    setOpenFaqIndex(openFaqIndex === index ? -1 : index);
   };
 
   // Carousel එක ඇතුලේ දිගටම rotate වෙන්න ඕන items ටික
@@ -65,6 +95,39 @@ const Home = () => {
       src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800",
       alt: "Group of children"
     }
+  ];
+
+  // Become A Volunteer Section collage images
+  const volunteerCollage = {
+    left: { src: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=400", alt: "Volunteers packing donation boxes" },
+    main: { src: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=700", alt: "Group of volunteers smiling" },
+    topRight: { src: "https://images.unsplash.com/photo-1608333687205-19a5b8bf1b58?q=80&w=400", alt: "Volunteer helping elderly woman" },
+    midRight: { src: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=400", alt: "Volunteers sorting donation clothes" },
+    bottom1: { src: "https://images.unsplash.com/photo-1593113630400-ea4288922497?q=80&w=300", alt: "Volunteer serving food" },
+    bottom2: { src: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=300", alt: "Volunteer with child" },
+    bottom3: { src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=300", alt: "Volunteer smiling" }
+  };
+
+  // FAQ Section collage images
+  const faqCollage = {
+    tall: { src: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=500", alt: "Volunteer packing food donation boxes" },
+    short: { src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=400", alt: "Volunteer smiling with donation items" },
+    mid: { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=400", alt: "Volunteer reading with a child" },
+    wide: { src: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=500", alt: "Children smiling together" }
+  };
+
+  // Meet With Volunteers Section team members
+  const teamVolunteers = [
+    { id: 1, name: "Robart Jonson", role: "Volunteer", color: "#3cd49b", src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=700", alt: "Male volunteer with glasses smiling" },
+    { id: 2, name: "Leslie Alexander", role: "Volunteer", color: "#ff544a", src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=700", alt: "Female volunteer smiling" },
+    { id: 3, name: "Kristin Watson", role: "Volunteer", color: "#ffb83b", src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=700", alt: "Male volunteer smiling" }
+  ];
+
+  // Testimonial floating avatars
+  const testimonialAvatars = [
+    { id: 1, src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=300", alt: "Smiling curly-haired volunteer", color: "#ffb83b" },
+    { id: 2, src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300", alt: "Bearded volunteer with glasses", color: "#3cd49b" },
+    { id: 3, src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300", alt: "Older volunteer with grey hair", color: "#ff544a" }
   ];
 
   return (
@@ -124,6 +187,22 @@ const Home = () => {
         .event-img-wrap:hover img {
           transform: scale(1.08);
         }
+
+        .faq-answer-wrap {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows 0.3s ease;
+        }
+        .faq-answer-wrap.open {
+          grid-template-rows: 1fr;
+        }
+        .faq-answer-inner {
+          overflow: hidden;
+        }
+        .faq-q-btn:hover .faq-icon-circle {
+          background-color: #ff544a;
+          color: white;
+        }
       `}</style>
 
       {/* 1. Envato Market Top Bar */}
@@ -162,22 +241,7 @@ const Home = () => {
       <nav className="navbar navbar-expand-lg navbar-light py-3" style={{ position: 'sticky', top: 0, zIndex: 1050, backgroundColor: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
         <div className="container-fluid px-4">
           <a className="navbar-brand d-flex align-items-center gap-2" href="#">
-            <svg width="50" height="50" viewBox="0 0 100 100">
-              <defs>
-                <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#134e5e" />
-                  <stop offset="100%" stopColor="#2575fc" />
-                </linearGradient>
-                <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#ff512f" />
-                  <stop offset="100%" stopColor="#dd2476" />
-                </linearGradient>
-              </defs>
-              <path d="M 20,50 A 30,30 0 1,1 80,50 A 30,30 0 0,1 20,50" stroke="url(#blueGrad)" strokeWidth="6" fill="none" opacity="0.9" />
-              <path d="M 30,25 A 30,30 0 0,1 80,50" stroke="url(#orangeGrad)" strokeWidth="5" fill="none" />
-              <circle cx="50" cy="32" r="6" fill="#134e5e" />
-              <path d="M 36,42 C 45,45 48,50 50,65 C 52,50 55,45 64,42 Z" fill="url(#orangeGrad)" />
-            </svg>
+                        <img src={logo} alt="Empower Hopes Logo" style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover" }} />
             <div>
               <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#162a35', margin: 0, letterSpacing: '0.5px' }}>EMPOWER HOPES</h4>
               <p style={{ fontSize: '10px', color: '#555', fontWeight: '600', margin: 0, letterSpacing: '1px' }}>HUMANITARIAN NETWORK</p>
@@ -186,11 +250,11 @@ const Home = () => {
 
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav align-items-center gap-2">
-              <li className="nav-item"><a className="nav-link active" href="#" style={{ fontWeight: '600', color: '#e65c00' }}>Home</a></li>
+              <li className="nav-item"><Link className="nav-link active" to="/" style={{ fontWeight: '600', color: '#e65c00' }}>Home</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Causes</a></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Events</a></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Pages</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Blog</a></li>
             </ul>
             <div className="d-flex align-items-center ms-lg-4">
@@ -593,6 +657,305 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Become A Volunteer Section */}
+      <section style={{ backgroundColor: '#161616', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', left: 0, top: 0, width: '55%', height: '100%',
+          backgroundImage: "url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=800')",
+          backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.06, zIndex: 0
+        }}></div>
+
+        <div className="container position-relative" style={{ zIndex: 1 }}>
+          <div className="row align-items-center g-5">
+            <div className="col-lg-6">
+              <div style={{ position: 'relative', height: '500px' }}>
+                <div style={{ position: 'absolute', left: 0, top: '160px', width: '17%', height: '150px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.left.src} alt={volunteerCollage.left.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '20%', top: '130px', width: '38%', height: '250px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.4)', zIndex: 3 }}>
+                  <img src={volunteerCollage.main.src} alt={volunteerCollage.main.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '61%', top: '130px', width: '18%', height: '110px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.topRight.src} alt={volunteerCollage.topRight.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '61%', top: '250px', width: '18%', height: '130px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.midRight.src} alt={volunteerCollage.midRight.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '57%', top: '155px', zIndex: 4 }}>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 27 C6 20, 2 14, 2 9 C2 4, 6 1, 10 2 C13 3, 15 6, 16 8 C17 6, 19 3, 22 2 C26 1, 30 4, 30 9 C30 14, 26 20, 16 27 Z" stroke="#ff544a" strokeWidth="2" fill="none" />
+                  </svg>
+                </div>
+                <div style={{ position: 'absolute', left: 0, top: '385px', width: '20%', height: '105px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.bottom1.src} alt={volunteerCollage.bottom1.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '23%', top: '385px', width: '20%', height: '105px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.bottom2.src} alt={volunteerCollage.bottom2.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '46%', top: '385px', width: '20%', height: '105px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.35)', zIndex: 2 }}>
+                  <img src={volunteerCollage.bottom3.src} alt={volunteerCollage.bottom3.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </div>
+
+            <div className="col-lg-6 text-white ps-lg-4">
+              <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '30px', display: 'block' }}>
+                Our Volunteer
+              </span>
+              <div className="d-inline-block position-relative mb-4">
+                <h2 style={{ fontSize: '42px', fontWeight: '800', margin: 0 }}>
+                  Become A Volunteer
+                </h2>
+                <div style={{ width: '70%', height: '8px', marginTop: '4px' }}>
+                  <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                    <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <p style={{ fontSize: '14.5px', color: '#c9c9c9', lineHeight: '1.7', maxWidth: '520px' }} className="mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+              </p>
+
+              <form onSubmit={(e) => e.preventDefault()}>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Your Name</label>
+                    <input type="text" className="volunteer-input" placeholder="Your Name" />
+                  </div>
+                  <div className="col-md-6">
+                    <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Your Email</label>
+                    <input type="email" className="volunteer-input" placeholder="Email Address" />
+                  </div>
+                  <div className="col-md-6">
+                    <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Phone Number</label>
+                    <input type="text" className="volunteer-input" placeholder="Phone Number" />
+                  </div>
+                  <div className="col-md-6">
+                    <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Date Of Birth</label>
+                    <input type="date" className="volunteer-input" placeholder="dd/mm/yyyy" />
+                  </div>
+                  <div className="col-12">
+                    <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Message</label>
+                    <textarea className="volunteer-input" rows="4" placeholder="Write Your Messages"></textarea>
+                  </div>
+                  <div className="col-12 mt-2">
+                    <div style={{ position: 'relative', display: 'inline-block' }}>
+                      <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '5px', border: '2px dashed #ff544a', zIndex: 1 }}></div>
+                      <button type="submit" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '14px 34px', border: 'none', borderRadius: '5px', letterSpacing: '0.5px', position: 'relative', zIndex: 2 }}>
+                        SUBMIT NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Meet With Volunteers Section */}
+      <section style={{ padding: '90px 0 100px 0', backgroundColor: '#ffffff', position: 'relative', overflow: 'hidden' }} className="text-center">
+        {/* Decorative Hand Icon Top Left */}
+        <div style={{ position: 'absolute', left: '0px', top: '160px', opacity: 0.9 }}>
+          <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+            <path d="M10 130 C30 100, 45 90, 55 70 L60 20 C60 12, 68 12, 68 20 L68 60" stroke="#ffb83b" strokeWidth="3" strokeLinecap="round" fill="none"/>
+            <path d="M68 60 L70 22 C70 14, 78 14, 78 22 L78 60" stroke="#ffb83b" strokeWidth="3" strokeLinecap="round" fill="none"/>
+            <path d="M78 60 L80 25 C80 17, 88 17, 88 25 L88 62" stroke="#ffb83b" strokeWidth="3" strokeLinecap="round" fill="none"/>
+            <path d="M88 62 L89 32 C89 25, 96 25, 96 32 L96 75" stroke="#ffb83b" strokeWidth="3" strokeLinecap="round" fill="none"/>
+            <rect x="18" y="95" width="30" height="14" rx="2" transform="rotate(-35 33 102)" fill="none" stroke="#ffb83b" strokeWidth="3"/>
+          </svg>
+        </div>
+
+        {/* Decorative Hearts Top Right */}
+        <div style={{ position: 'absolute', right: '60px', top: '150px' }}>
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <path d="M30 50 C10 35, 5 22, 12 14 C18 7, 28 10, 30 18 C32 10, 42 7, 48 14 C55 22, 50 35, 30 50 Z" fill="#3cd49b"/>
+          </svg>
+        </div>
+        <div style={{ position: 'absolute', right: '20px', top: '195px' }}>
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <path d="M21 36 C7 25, 4 16, 9 10 C13 5, 20 7, 21 13 C22 7, 29 5, 33 10 C38 16, 35 25, 21 36 Z" fill="#ff544a"/>
+          </svg>
+        </div>
+
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            Our Volunteers
+          </span>
+
+          <div className="d-inline-block mb-3 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+              Meet <span>With Volunteers</span>
+            </h2>
+            <div style={{ width: '55%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '15px', color: '#7e7e7e', maxWidth: '680px', margin: '15px auto 55px auto', lineHeight: '1.7' }}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem voluptatem obcaecati consectetur adipisicing
+          </p>
+
+          <div className="row g-0">
+            {teamVolunteers.map((member) => (
+              <div className="col-lg-4 col-md-4" key={member.id}>
+                <div style={{ position: 'relative' }}>
+                  <img
+                    src={member.src}
+                    alt={member.alt}
+                    style={{ width: '100%', height: '260px', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{ position: 'absolute', left: '20px', bottom: '20px', width: '48px', height: '48px', backgroundColor: member.color, borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', boxShadow: '0 8px 20px rgba(0,0,0,0.25)' }}>
+                    <FaShareAlt />
+                  </div>
+                </div>
+                <div style={{ backgroundColor: member.color, backgroundImage: `repeating-linear-gradient(45deg, ${member.color}, ${member.color} 10px, rgba(255,255,255,0.06) 10px, rgba(255,255,255,0.06) 20px)`, padding: '22px 10px', textAlign: 'center' }}>
+                  <h4 style={{ color: 'white', fontSize: '20px', fontWeight: '800', margin: 0 }}>{member.name}</h4>
+                  <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px', margin: '4px 0 0 0' }}>{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10.5 FAQ Section ─── "How Can We Help You?" ─── */}
+      <section style={{ padding: '90px 0 100px 0', backgroundColor: '#ffffff' }}>
+        <div className="container">
+          <div className="row align-items-start g-5">
+
+            {/* Photo Collage */}
+            <div className="col-lg-6">
+              <div style={{ position: 'relative' }}>
+                <svg width="55" height="55" viewBox="0 0 60 60" fill="none" style={{ position: 'absolute', top: '-38px', left: '-8px', color: '#ff544a', transform: 'rotate(-8deg)', zIndex: 2 }}>
+                  <path d="M5 5 Q30 0 35 25 Q40 45 55 40" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                  <path d="M45 32 L55 40 L44 44" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+
+                <div className="row g-3">
+                  <div className="col-6 d-flex flex-column gap-3">
+                    <div style={{ borderRadius: '10px', overflow: 'hidden', height: '300px', boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}>
+                      <img src={faqCollage.tall.src} alt={faqCollage.tall.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <div style={{ borderRadius: '10px', overflow: 'hidden', height: '150px', boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}>
+                      <img src={faqCollage.short.src} alt={faqCollage.short.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                  </div>
+                  <div className="col-6 d-flex flex-column gap-3">
+                    <div style={{ borderRadius: '10px', overflow: 'hidden', height: '150px', boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}>
+                      <img src={faqCollage.mid.src} alt={faqCollage.mid.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                    <div style={{ borderRadius: '10px', overflow: 'hidden', height: '135px', boxShadow: '0 15px 35px rgba(0,0,0,0.08)' }}>
+                      <img src={faqCollage.wide.src} alt={faqCollage.wide.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Content + Accordion */}
+            <div className="col-lg-6">
+              <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+                Faq
+              </span>
+              <div className="d-inline-block position-relative mb-4">
+                <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+                  How Can We Help You?
+                </h2>
+                <div style={{ width: '75%', height: '8px', marginTop: '4px' }}>
+                  <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                    <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <p style={{ fontSize: '15px', color: '#7e7e7e', maxWidth: '480px', lineHeight: '1.7' }} className="mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem voluptatem obcaecati consectetur adipisicing
+              </p>
+
+              <div>
+                {faqItems.map((item, index) => {
+                  const isOpen = openFaqIndex === index;
+                  return (
+                    <div key={item.id} style={{ borderTop: '1px solid #e8e6e1', borderBottom: index === faqItems.length - 1 ? '1px solid #e8e6e1' : 'none', padding: '24px 0' }}>
+                      <button
+                        className="faq-q-btn"
+                        onClick={() => toggleFaq(index)}
+                        style={{ display: 'flex', alignItems: 'center', gap: '18px', background: 'none', border: 'none', width: '100%', textAlign: 'left', cursor: 'pointer' }}
+                      >
+                        <span
+                          className="faq-icon-circle"
+                          style={{
+                            flexShrink: 0, width: '34px', height: '34px', borderRadius: '50%',
+                            border: '1.5px solid #ff544a', color: isOpen ? 'white' : '#ff544a',
+                            backgroundColor: isOpen ? '#ff544a' : 'transparent',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            fontSize: '20px', transition: 'all 0.2s ease'
+                          }}
+                        >
+                          {isOpen ? '−' : '+'}
+                        </span>
+                        <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#1c2d37', margin: 0 }}>{item.question}</h4>
+                      </button>
+                      <div className={`faq-answer-wrap ${isOpen ? 'open' : ''}`}>
+                        <div className="faq-answer-inner">
+                          <p style={{ color: '#7e7e7e', fontSize: '14.5px', lineHeight: '1.7', paddingLeft: '52px', marginTop: '14px', marginBottom: 0 }}>
+                            {item.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Testimonial Section */}
+      <section style={{ backgroundColor: '#1a1a1a', padding: '90px 0', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '18px 18px' }}></div>
+
+        <div className="container position-relative">
+          <div className="row align-items-center g-5">
+
+            {/* Left Floating Avatars */}
+            <div className="col-lg-6">
+              <div style={{ position: 'relative', height: '380px' }}>
+                <div style={{ position: 'absolute', left: '60px', top: '20px', width: '150px', height: '150px', borderRadius: '50%', padding: '5px', border: `4px solid ${testimonialAvatars[0].color}` }}>
+                  <img src={testimonialAvatars[0].src} alt={testimonialAvatars[0].alt} style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '280px', top: '55px', width: '110px', height: '110px', borderRadius: '50%', padding: '4px', border: `4px solid ${testimonialAvatars[1].color}` }}>
+                  <img src={testimonialAvatars[1].src} alt={testimonialAvatars[1].alt} style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'absolute', left: '130px', top: '180px', width: '190px', height: '190px', borderRadius: '50%', padding: '5px', border: `4px solid ${testimonialAvatars[2].color}` }}>
+                  <img src={testimonialAvatars[2].src} alt={testimonialAvatars[2].alt} style={{ width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover' }} />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Quote Content */}
+            <div className="col-lg-6 text-white">
+              <svg width="60" height="45" viewBox="0 0 60 45" fill="none" className="mb-3">
+                <path d="M0 45V27C0 12 9 2 24 0V9C15 11 11 17 11 24H24V45H0Z" fill="#3cd49b"/>
+                <path d="M33 45V27C33 12 42 2 57 0V9C48 11 44 17 44 24H57V45H33Z" fill="#3cd49b"/>
+              </svg>
+              <p style={{ fontSize: '26px', fontStyle: 'italic', color: '#d6d6d6', lineHeight: '1.6', fontWeight: '300' }}>
+                Randomised words whdon't look even htly believable Available, but the majority have suffered alteration soform, by injected humour, or you are going to use.
+              </p>
+              <h4 style={{ fontSize: '20px', fontWeight: '800', color: 'white', marginTop: '25px' }}>Ralph Alfred</h4>
+            </div>
+
           </div>
         </div>
       </section>
