@@ -260,9 +260,9 @@ const Home = () => {
             <div className="d-flex align-items-center ms-lg-4">
               <button style={{ background: 'none', border: 'none', color: '#333', fontSize: '18px' }} className="px-2"><FaSearch /></button>
               <button style={{ background: 'none', border: 'none', color: '#333', fontSize: '18px' }} className="px-2 me-3"><FaRegUser /></button>
-              <button style={{ backgroundColor: '#d9531e', color: 'white', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '5px', border: 'none' }}>
+              <Link to="/donate" style={{ backgroundColor: '#d9531e', color: 'white', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>
                 DONATE NOW
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -279,8 +279,8 @@ const Home = () => {
             Only when the society comes together and contributes we will be able to make an impact.
           </p>
           <div className="d-flex gap-3 justify-content-center">
-            <button style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none' }}>Donate Now</button>
-            <button style={{ backgroundColor: '#ffb83b', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none' }}>Contact Us</button>
+            <Link to="/donate" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>Donate Now</Link>
+            <Link to="/contact" style={{ backgroundColor: '#ffb83b', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>Contact Us</Link>
           </div>
         </div>
       </section>
@@ -308,9 +308,9 @@ const Home = () => {
               
               <div style={{ position: 'relative', width: '85%' }} className="mb-4">
                 <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '5px', border: '2px dashed #ff544a', zIndex: 1 }}></div>
-                <button style={{ width: '100%', backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '14px 10px', border: 'none', borderRadius: '5px', letterSpacing: '0.5px', position: 'relative', zIndex: 2 }}>
+                <Link to="/donate" style={{ width: '100%', backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '14px 10px', border: 'none', borderRadius: '5px', letterSpacing: '0.5px', position: 'relative', zIndex: 2, textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
                   DONATION NOW
-                </button>
+                </Link>
               </div>
 
               <div className="d-flex gap-2 justify-content-center mt-2">
@@ -480,9 +480,9 @@ const Home = () => {
                   </div>
                   <div style={{ position: 'relative', marginTop: '30px' }}>
                     <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '4px', border: '2px dashed #ffb83b', zIndex: 1 }}></div>
-                    <button style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#ffb83b', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2 }}>
+                    <Link to="/donate" style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#ffb83b', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2, textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
                       DONATION NOW
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -506,9 +506,9 @@ const Home = () => {
                   </div>
                   <div style={{ position: 'relative', marginTop: '30px' }}>
                     <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '4px', border: '2px dashed #10b981', zIndex: 1 }}></div>
-                    <button style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#10b981', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2 }}>
+                    <Link to="/donate" style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#10b981', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2, textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
                       DONATION NOW
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -532,9 +532,9 @@ const Home = () => {
                   </div>
                   <div style={{ position: 'relative', marginTop: '30px' }}>
                     <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '4px', border: '2px dashed #ff544a', zIndex: 1 }}></div>
-                    <button style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#ff544a', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2 }}>
+                    <Link to="/donate" style={{ width: '100%', padding: '12px 20px', fontSize: '13.5px', fontWeight: '700', color: 'white', backgroundColor: '#ff544a', border: 'none', borderRadius: '4px', position: 'relative', zIndex: 2, textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
                       DONATION NOW
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

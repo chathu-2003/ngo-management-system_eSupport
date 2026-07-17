@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 
 import { 
@@ -275,11 +276,11 @@ const About = () => {
 
           {/* Desktop Navigation Links */}
           <div className="d-none d-lg-flex align-items-center gap-4">
-            <a href="#" className="nav-link-custom active">Home</a>
+            <Link to="/" className="nav-link-custom">Home</Link>
             <a href="#" className="nav-link-custom">Causes</a>
             <a href="#" className="nav-link-custom">Events</a>
             <a href="#" className="nav-link-custom">Portfolio</a>
-            <a href="#" className="nav-link-custom">About</a>
+            <Link to="/about" className="nav-link-custom active">About</Link>
             <a href="#" className="nav-link-custom">Blog</a>
           </div>
 
@@ -292,8 +293,8 @@ const About = () => {
               <FaUser />
             </button>
             
-            <a 
-              href="#donate" 
+            <Link 
+              to="/donate" 
               className="d-none d-sm-inline-block"
               style={{
                 backgroundColor: '#e65100',
@@ -309,7 +310,7 @@ const About = () => {
               }}
             >
               DONATE NOW
-            </a>
+            </Link>
 
             {/* Mobile Hamburger Toggle */}
             <button 
@@ -328,14 +329,14 @@ const About = () => {
         {isMobileMenuOpen && (
           <div className="d-lg-none mobile-menu-drawer" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #eee', padding: '20px 0', marginTop: '15px' }}>
             <div className="container d-flex flex-column gap-3">
-              <a href="#" className="nav-link-custom active" onClick={toggleMobileMenu}>Home</a>
+              <Link to="/" className="nav-link-custom" onClick={toggleMobileMenu}>Home</Link>
               <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Causes</a>
               <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Events</a>
               <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Portfolio</a>
-              <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>About</a>
+              <Link to="/about" className="nav-link-custom active" onClick={toggleMobileMenu}>About</Link>
               <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Blog</a>
-              <a 
-                href="#donate" 
+              <Link 
+                to="/donate" 
                 className="d-sm-none text-center mt-2"
                 style={{
                   backgroundColor: '#e65100',
@@ -348,7 +349,7 @@ const About = () => {
                 onClick={toggleMobileMenu}
               >
                 DONATE NOW
-              </a>
+              </Link>
             </div>
           </div>
         )}
@@ -378,12 +379,12 @@ const About = () => {
                 Only when the society comes together and contributes we will be able to make an impact. Your little help can make million children smile.
               </p>
               <div className="d-flex flex-wrap gap-3">
-                <a href="#donate" style={{ backgroundColor: '#e65100', color: 'white', padding: '14px 28px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none' }}>
+                <Link to="/donate" style={{ backgroundColor: '#e65100', color: 'white', padding: '14px 28px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none' }}>
                   Donate Now
-                </a>
-                <a href="#contact" style={{ backgroundColor: 'transparent', border: '2px solid white', color: 'white', padding: '14px 28px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none' }}>
+                </Link>
+                <Link to="/contact" style={{ backgroundColor: 'transparent', border: '2px solid white', color: 'white', padding: '14px 28px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none' }}>
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -443,9 +444,9 @@ const About = () => {
                   </div>
 
                   <div className="px-4 pb-4">
-                    <a href="#donate" style={{ display: 'block', backgroundColor: '#e65100', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none', textAlign: 'center' }}>
+                    <Link to="/donate" style={{ display: 'block', backgroundColor: '#e65100', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: '700', textDecoration: 'none', textAlign: 'center' }}>
                       DONATION NOW
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -640,8 +641,8 @@ const About = () => {
 
             <div className="col-lg-4 text-lg-end">
               <div className="d-flex gap-3 justify-content-center justify-content-lg-end flex-wrap">
-                <a 
-                  href="#donate" 
+                <Link 
+                  to="/donate" 
                   style={{ 
                     backgroundColor: '#132832', 
                     color: '#ffffff', 
@@ -654,7 +655,7 @@ const About = () => {
                   }}
                 >
                   DONATE NOW
-                </a>
+                </Link>
                 <a 
                   href="#volunteer" 
                   style={{ 
