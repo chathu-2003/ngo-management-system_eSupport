@@ -328,6 +328,29 @@ const Projects = () => {
             ))}
           </div>
 
+          {/* Agriculture Category Banner Image (shown only when Agriculture filter is active) */}
+          {activeFilter === 'Agriculture' && (
+            <div className="text-start mb-5" style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 15px 35px rgba(0,0,0,0.1)' }}>
+              <img
+                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600"
+                alt="Small-scale agriculture business owners working in the field"
+                style={{ width: '100%', height: '260px', objectFit: 'cover', display: 'block' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(60,212,155,0.85), rgba(60,212,155,0.15))' }}></div>
+              <div style={{ position: 'absolute', left: '30px', top: '50%', transform: 'translateY(-50%)', color: 'white', maxWidth: '420px' }}>
+                <span style={{ fontSize: '12px', fontWeight: '700', backgroundColor: 'rgba(255,255,255,0.2)', padding: '5px 14px', borderRadius: '20px', display: 'inline-block', marginBottom: '12px' }}>
+                  AGRICULTURE
+                </span>
+                <h3 style={{ fontSize: '26px', fontWeight: '800', margin: 0, lineHeight: '1.3' }}>
+                  Growing Farms, Growing Futures
+                </h3>
+                <p style={{ fontSize: '13.5px', marginTop: '10px', marginBottom: 0, opacity: 0.95 }}>
+                  Supporting small farmers and fisheries with seed capital, tools, and training.
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Business Owner Profile Cards */}
           <div className="row g-4 text-start">
             {filteredOwners.map((owner) => (
