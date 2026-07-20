@@ -322,7 +322,7 @@ const Home = () => {
               <li className="nav-item"><Link className="nav-link active" to="/" style={{ fontWeight: '600', color: '#e65c00' }}>Home</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Causes</a></li>
               <li className="nav-item"><Link className="nav-link" to="/events" style={{ fontWeight: '600', color: '#333' }}>Events</Link></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/projects" style={{ fontWeight: '600', color: '#333' }}>Project</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/news" style={{ fontWeight: '600', color: '#333' }}>News</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/blog" style={{ fontWeight: '600', color: '#333' }}>Blog</Link></li>
