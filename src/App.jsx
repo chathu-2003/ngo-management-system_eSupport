@@ -7,6 +7,7 @@ import Events from './pages/Events';
 import Stories from './pages/Stories';
 import News from './pages/News';
 import Blog from './pages/Blog';
+import Projects from './pages/Projects';
  
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/success-stories" element={<Stories />} />
         <Route path="/news" element={<News />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </BrowserRouter>
   );
