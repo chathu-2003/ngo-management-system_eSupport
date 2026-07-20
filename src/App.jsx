@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Donate from './pages/Donate';
+import Events from './pages/Events';
+import Stories from './pages/Stories';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/donate" element={<Donate />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/success-stories" element={<Stories />} />
       </Routes>
     </BrowserRouter>
   );

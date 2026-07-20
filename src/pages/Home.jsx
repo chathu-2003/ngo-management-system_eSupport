@@ -4,7 +4,8 @@ import logo from '../assets/logo.jpeg';
 import { 
   FaFacebookF, FaTwitter, FaPinterestP, FaLinkedinIn, FaMapMarkerAlt, 
   FaSearch, FaRegUser, FaHeart, FaHandshake, FaPlay, FaChevronUp,
-  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt
+  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt,
+  FaArrowRight, FaEnvelope, FaPhoneAlt, FaQuoteLeft, FaYoutube
 } from 'react-icons/fa';
 
 const Home = () => {
@@ -130,6 +131,38 @@ const Home = () => {
     { id: 3, src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300", alt: "Older volunteer with grey hair", color: "#ff544a" }
   ];
 
+  // ====== Success Stories data (NGO donation-impact focused) ======
+  const successStories = [
+    {
+      id: 1,
+      name: "Amara Perera",
+      role: "Funded by Education Sponsors",
+      src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600",
+      alt: "Young girl who benefited from an education sponsorship",
+      story: "When Amara's family could no longer afford school fees, donors from our Education Fund stepped in. Today she has finished her nursing degree and works at her village clinic, giving back to the very community that once supported her.",
+      color: "#ff544a"
+    },
+    {
+      id: 2,
+      name: "Nimal Silva's Village",
+      role: "Clean Water For All Children Project",
+      src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600",
+      alt: "Villager standing beside a newly built water well",
+      story: "Through contributions to our Water For All Children cause, a new well was built for Nimal's village. Over 300 families now walk minutes instead of hours to reach clean, safe drinking water.",
+      color: "#3cd49b"
+    },
+    {
+      id: 3,
+      name: "Sithara Fernando",
+      role: "Supported Through The Rights Of Children Cause",
+      src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600",
+      alt: "Woman who was helped through a child-protection and livelihood programme",
+      story: "Sithara was one of the first children enrolled in our protection programme years ago. With continued donor support into adulthood, she now runs a small community workshop that trains and employs other young women from the same background.",
+      color: "#ffb83b"
+    }
+  ];
+  // ====== END ======
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: '#fcfbf9', position: 'relative' }}>
       
@@ -203,6 +236,42 @@ const Home = () => {
           background-color: #ff544a;
           color: white;
         }
+
+        /* Success Story card hover */
+        .success-story-card {
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .success-story-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Footer link hover */
+        .footer-link {
+          color: #b7b7b7;
+          text-decoration: none;
+          transition: color 0.2s ease, padding-left 0.2s ease;
+          display: inline-block;
+        }
+        .footer-link:hover {
+          color: #ff544a;
+          padding-left: 4px;
+        }
+        .footer-social-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: rgba(255,255,255,0.06);
+          color: #d0d0d0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .footer-social-icon:hover {
+          background-color: #ff544a;
+          color: white;
+        }
       `}</style>
 
       {/* 1. Envato Market Top Bar */}
@@ -252,7 +321,7 @@ const Home = () => {
             <ul className="navbar-nav align-items-center gap-2">
               <li className="nav-item"><Link className="nav-link active" to="/" style={{ fontWeight: '600', color: '#e65c00' }}>Home</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Causes</a></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Events</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/events" style={{ fontWeight: '600', color: '#333' }}>Events</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
               <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Blog</a></li>
@@ -652,11 +721,17 @@ const Home = () => {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    style={{ width: '100%', height: '340px', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '340px', objectFit: 'cover', display: 'block', cursor: 'pointer' }}
                   />
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-5 text-center">
+            <Link to="/events" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 35px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>
+              View All Events
+            </Link>
           </div>
         </div>
       </section>
@@ -959,6 +1034,136 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Success Stories Section */}
+      <section id="success-stories" style={{ padding: '90px 0 100px 0', backgroundColor: '#fdfbf7' }} className="text-center">
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            Real Impact
+          </span>
+
+          <div className="d-inline-block mb-3 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+              Our Success Stories
+            </h2>
+            <div style={{ width: '60%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '15px', color: '#7e7e7e', maxWidth: '680px', margin: '15px auto 55px auto', lineHeight: '1.7' }}>
+            As a non-profit, every project you see here was made possible only because of generous donors. These are a few of the lives changed by that generosity.
+          </p>
+
+          <div className="row g-4 text-start">
+            {successStories.map((s) => (
+              <div className="col-lg-4 col-md-6" key={s.id}>
+                <div className="success-story-card" style={{ background: 'white', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.06)', height: '100%' }}>
+                  <div style={{ position: 'relative' }}>
+                    <img src={s.src} alt={s.alt} style={{ width: '100%', height: '230px', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ position: 'absolute', left: '20px', bottom: '-22px', width: '44px', height: '44px', borderRadius: '50%', backgroundColor: s.color, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.25)' }}>
+                      <FaQuoteLeft size={16} />
+                    </div>
+                  </div>
+                  <div className="p-4 pt-5">
+                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#1c2d37', marginBottom: '4px' }}>{s.name}</h4>
+                    <span style={{ fontSize: '13px', fontWeight: '600', color: s.color }}>{s.role}</span>
+                    <p style={{ fontSize: '14px', color: '#777', lineHeight: '1.7', marginTop: '14px' }}>{s.story}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 text-center">
+            <Link to="/success-stories" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 35px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              View All Stories <FaArrowRight size={13} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ backgroundColor: '#0f0f0f', color: '#b7b7b7', paddingTop: '70px' }}>
+        <div className="container">
+          <div className="row g-5 pb-5">
+
+            {/* About column */}
+            <div className="col-lg-3 col-md-6">
+              <div className="d-flex align-items-center gap-2 mb-3">
+                <img src={logo} alt="Empower Hopes Logo" style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
+                <h4 style={{ fontSize: '16px', fontWeight: '800', color: 'white', margin: 0 }}>EMPOWER HOPES</h4>
+              </div>
+              <p style={{ fontSize: '13.5px', lineHeight: '1.8', color: '#9a9a9a' }}>
+                We are a non-profit humanitarian network working with communities to bring clean water, education and hope to children who need it the most.
+              </p>
+              <div className="d-flex gap-2 mt-3">
+                <a href="#" className="footer-social-icon"><FaFacebookF size={13} /></a>
+                <a href="#" className="footer-social-icon"><FaTwitter size={13} /></a>
+                <a href="#" className="footer-social-icon"><FaPinterestP size={13} /></a>
+                <a href="#" className="footer-social-icon"><FaYoutube size={13} /></a>
+              </div>
+            </div>
+
+            {/* Quick Links column */}
+            <div className="col-lg-3 col-md-6">
+              <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'white', marginBottom: '22px' }}>Quick Links</h4>
+              <div className="d-flex flex-column gap-3">
+                <Link to="/" className="footer-link">Home</Link>
+                <Link to="/about" className="footer-link">About Us</Link>
+                <Link to="/events" className="footer-link">Events</Link>
+                {/* Success Stories footer link -> scrolls to the section above */}
+                <a href="#success-stories" className="footer-link">Success Stories</a>
+                <Link to="/donate" className="footer-link">Donate</Link>
+              </div>
+            </div>
+
+            {/* Causes column */}
+            <div className="col-lg-3 col-md-6">
+              <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'white', marginBottom: '22px' }}>Our Causes</h4>
+              <div className="d-flex flex-column gap-3">
+                <a href="#" className="footer-link">Water For All Children</a>
+                <a href="#" className="footer-link">Protecting Children</a>
+                <a href="#" className="footer-link">The Rights of Children</a>
+                <a href="#" className="footer-link">Education Fund</a>
+              </div>
+            </div>
+
+            {/* Contact column */}
+            <div className="col-lg-3 col-md-6">
+              <h4 style={{ fontSize: '16px', fontWeight: '700', color: 'white', marginBottom: '22px' }}>Get In Touch</h4>
+              <div className="d-flex flex-column gap-3">
+                <div className="d-flex align-items-start gap-2">
+                  <FaMapMarkerAlt style={{ marginTop: '3px', color: '#ff544a', flexShrink: 0 }} />
+                  <span style={{ fontSize: '13.5px' }}>Shiloh, Hawaii 81063</span>
+                </div>
+                <div className="d-flex align-items-center gap-2">
+                  <FaPhoneAlt style={{ color: '#ff544a', flexShrink: 0 }} />
+                  <span style={{ fontSize: '13.5px' }}>+1 (555) 234-5678</span>
+                </div>
+                <div className="d-flex align-items-center gap-2">
+                  <FaEnvelope style={{ color: '#ff544a', flexShrink: 0 }} />
+                  <span style={{ fontSize: '13.5px' }}>hello@empowerhopes.org</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom bar */}
+          <div style={{ borderTop: '1px solid #262626', padding: '22px 0' }} className="d-flex flex-wrap justify-content-between align-items-center">
+            <p style={{ fontSize: '13px', margin: 0, color: '#8a8a8a' }}>
+              © {new Date().getFullYear()} Empower Hopes. All Rights Reserved.
+            </p>
+            <div className="d-flex gap-4">
+              <a href="#" className="footer-link" style={{ fontSize: '13px' }}>Privacy Policy</a>
+              <a href="#" className="footer-link" style={{ fontSize: '13px' }}>Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       {/* Back To Top Arrow Button */}
       <button 
