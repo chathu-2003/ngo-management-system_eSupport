@@ -5,7 +5,9 @@ import Contact from './pages/Contact';
 import Donate from './pages/Donate';
 import Events from './pages/Events';
 import Stories from './pages/Stories';
-
+import News from './pages/News';
+import Blog from './pages/Blog';
+ 
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/events" element={<Events />} />
         <Route path="/success-stories" element={<Stories />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </BrowserRouter>
   );

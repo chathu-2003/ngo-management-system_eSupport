@@ -324,7 +324,8 @@ const Home = () => {
               <li className="nav-item"><Link className="nav-link" to="/events" style={{ fontWeight: '600', color: '#333' }}>Events</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
               <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Blog</a></li>
+              <li className="nav-item"><Link className="nav-link" to="/news" style={{ fontWeight: '600', color: '#333' }}>News</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/blog" style={{ fontWeight: '600', color: '#333' }}>Blog</Link></li>
             </ul>
             <div className="d-flex align-items-center ms-lg-4">
               <button style={{ background: 'none', border: 'none', color: '#333', fontSize: '18px' }} className="px-2"><FaSearch /></button>
