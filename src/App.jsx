@@ -8,6 +8,7 @@ import Stories from './pages/Stories';
 import News from './pages/News';
 import Blog from './pages/Blog';
 import Projects from './pages/Projects';
+import Programe from './pages/Programe';
  
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/programe" element={<Programe />} />
       </Routes>
     </BrowserRouter>
   );
