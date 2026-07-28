@@ -256,7 +256,7 @@ const Events = () => {
 
           <div className="d-none d-lg-flex align-items-center gap-4">
             <Link to="/" className="nav-link-custom">Home</Link>
-            <a href="#" className="nav-link-custom">Causes</a>
+            <a href="#" className="nav-link-custom">Programes</a>
             <Link to="/events" className="nav-link-custom active">Events</Link>
             <a href="#" className="nav-link-custom">Portfolio</a>
             <Link to="/about" className="nav-link-custom">About</Link>

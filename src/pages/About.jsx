@@ -6,7 +6,8 @@ import {
   FaHeart, FaEye, FaCheckCircle, 
   FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram,
   FaGooglePlusG, FaArrowUp, FaMapMarkerAlt, FaPinterestP, 
-  FaSearch, FaUser, FaMinus, FaPlus, FaHandsHelping, FaDonate, FaUserPlus, FaBars, FaTimes
+  FaSearch, FaUser, FaMinus, FaPlus, FaHandsHelping, FaDonate, FaUserPlus, FaBars, FaTimes,
+  FaBullseye, FaFlag, FaHistory, FaUserTie, FaFileContract, FaCertificate, FaBuilding, FaClock
 } from 'react-icons/fa';
 
 const About = () => {
@@ -124,6 +125,55 @@ const About = () => {
     "https://images.unsplash.com/photo-1482235225574-c32690364265?q=80&w=150"
   ];
 
+  // ====== Vision / Mission / History data ======
+  const orgPillars = [
+    {
+      id: 1,
+      title: "Our Vision",
+      icon: <FaEye />,
+      color: '#ffb83b',
+      text: "To build compassionate, resilient, and self-sustaining communities where every individual has equal opportunities to thrive with dignity, hope, and purpose."
+    },
+    {
+      id: 2,
+      title: "Our Mission",
+      icon: <FaBullseye />,
+      color: '#e65100',
+      text: "Empower Hopes Humanitarian Network exists to improve lives through humanitarian action, community development, economic empowerment, education, environmental stewardship, mental wellbeing, and collaborative partnerships while promoting equality, inclusion, and sustainable social impact."
+    },
+    {
+      id: 3,
+      title: "Our History",
+      icon: <FaHistory />,
+      color: '#3cd49b',
+      text: "Empower Hopes Humanitarian Network was founded to bridge gaps in humanitarian assistance by bringing together professionals, volunteers, community leaders, and partners committed to creating sustainable solutions for vulnerable populations. The organization believes that meaningful social change is achieved through collaboration, innovation, compassion, and community-led development."
+    }
+  ];
+  // ====== END ======
+
+  // ====== Leadership Team data (names, photos & bios pending) ======
+  const leadershipTeam = [
+    { id: 1, role: "Chairperson / Founder" },
+    { id: 2, role: "Director of Projects & Programs" },
+    { id: 3, role: "Director of Community & Rural Development" },
+    { id: 4, role: "Director of Wellbeing & Mental Health" },
+    { id: 5, role: "Director of Environment & Sustainability" },
+    { id: 6, role: "Director of Communications & Marketing" },
+    { id: 7, role: "Director of Equity, Diversity & Inclusion" },
+    { id: 8, role: "Director of Children & Women's Affairs" },
+    { id: 9, role: "Director of External Relations & Partnerships" },
+    { id: 10, role: "Director of Monitoring & Evaluation" }
+  ];
+  // ====== END ======
+
+  // ====== Registration Details data ======
+  const registrationDetails = [
+    { id: 1, label: "Registration Number", value: "To be confirmed", pending: true },
+    { id: 2, label: "Date of Incorporation", value: "To be confirmed", pending: true },
+    { id: 3, label: "Registration Certificate", value: "To be confirmed", pending: true }
+  ];
+  // ====== END ======
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -192,6 +242,24 @@ const About = () => {
         .custom-input:focus {
           border-color: #e65100;
           background-color: #fff;
+        }
+
+        /* Pillar card (Vision / Mission / History) hover */
+        .pillar-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Leadership placeholder card hover */
+        .leader-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .leader-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 26px rgba(0,0,0,0.07);
         }
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
@@ -277,7 +345,7 @@ const About = () => {
           {/* Desktop Navigation Links */}
           <div className="d-none d-lg-flex align-items-center gap-4">
             <Link to="/" className="nav-link-custom">Home</Link>
-            <a href="#" className="nav-link-custom">Causes</a>
+            <a href="#" className="nav-link-custom">Programes</a>
             <a href="#" className="nav-link-custom">Events</a>
             <a href="#" className="nav-link-custom">Portfolio</a>
             <Link to="/about" className="nav-link-custom active">About</Link>
@@ -500,6 +568,33 @@ const About = () => {
         </div>
       </section>
 
+      {/* ----------------- 6.5 OUR VISION, MISSION & HISTORY ----------------- */}
+      <section style={{ padding: '80px 0', backgroundColor: '#fcfaf5' }}>
+        <div className="container text-center mb-5">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#e65100', fontSize: '32px' }}>Who We Are</span>
+          <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#132832' }}>Vision, Mission &amp; History</h2>
+          <p style={{ color: '#666', maxWidth: '650px', margin: '15px auto 0', fontSize: '15px' }}>
+            The purpose and story that guide every programme we run.
+          </p>
+        </div>
+
+        <div className="container">
+          <div className="row g-4">
+            {orgPillars.map((pillar) => (
+              <div className="col-lg-4 col-md-6" key={pillar.id}>
+                <div className="pillar-card p-4 rounded-3 h-100" style={{ backgroundColor: '#ffffff', border: '1px solid #f0f0f0' }}>
+                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: `${pillar.color}1a`, color: pillar.color, fontSize: '26px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                    {pillar.icon}
+                  </div>
+                  <h4 style={{ fontWeight: '700', color: '#132832', fontSize: '20px', marginBottom: '12px' }}>{pillar.title}</h4>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.75', margin: 0 }}>{pillar.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ----------------- 7. VOLUNTEER FORM SECTION ----------------- */}
       <section id="volunteer" style={{ padding: '80px 0', backgroundColor: '#132832', color: 'white' }}>
         <div className="container">
@@ -562,6 +657,79 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------- 8.5 LEADERSHIP TEAM (Names, Photos & Bios Pending) ----------------- */}
+      <section style={{ padding: '80px 0', backgroundColor: '#fdfbf7' }}>
+        <div className="container text-center mb-5">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#e65100', fontSize: '32px' }}>Our Team</span>
+          <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#132832' }}>Leadership Team</h2>
+          <p style={{ color: '#666', maxWidth: '650px', margin: '15px auto 0', fontSize: '15px' }}>
+            Meet the people steering Empower Hopes. Names, photos, and full bios will be added soon.
+          </p>
+        </div>
+
+        <div className="container">
+          <div className="row g-4">
+            {leadershipTeam.map((leader) => (
+              <div className="col-lg-3 col-md-4 col-6" key={leader.id}>
+                <div className="leader-card text-center h-100 p-4" style={{ backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #f0f0f0' }}>
+                  <div style={{ width: '72px', height: '72px', borderRadius: '50%', backgroundColor: '#fff3ec', color: '#e65100', fontSize: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px' }}>
+                    <FaUserTie />
+                  </div>
+                  <h4 style={{ fontSize: '15px', fontWeight: '700', color: '#132832', margin: 0, lineHeight: '1.4' }}>{leader.role}</h4>
+                  <p style={{ color: '#a4a4a4', fontSize: '12px', fontWeight: '600', margin: '10px 0 0', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                    Photo &amp; Bio Coming Soon
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ----------------- 8.7 REGISTRATION DETAILS ----------------- */}
+      <section style={{ padding: '80px 0', backgroundColor: '#ffffff' }}>
+        <div className="container text-center mb-5">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#e65100', fontSize: '32px' }}>Legal Standing</span>
+          <h2 style={{ fontSize: '32px', fontWeight: '800', color: '#132832' }}>Registration Details</h2>
+        </div>
+
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="d-flex align-items-start gap-3 p-4 mb-4" style={{ backgroundColor: '#fff7ed', borderRadius: '10px', borderLeft: '4px solid #e65100' }}>
+                <div style={{ fontSize: '24px', color: '#e65100', flexShrink: 0 }}>
+                  <FaBuilding />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#132832', margin: '0 0 6px' }}>Current Registration</h4>
+                  <p style={{ fontSize: '14px', color: '#666', margin: 0, lineHeight: '1.7' }}>
+                    Company Limited by Guarantee under the Companies Act No. 7 of 2007.
+                  </p>
+                </div>
+              </div>
+
+              <div className="row g-3">
+                {registrationDetails.map((detail) => (
+                  <div className="col-md-4" key={detail.id}>
+                    <div className="d-flex align-items-start gap-3 p-4 h-100" style={{ backgroundColor: '#fafafa', borderRadius: '10px', border: '1px dashed #e2e8f0' }}>
+                      <div style={{ fontSize: '18px', color: '#ffb83b', flexShrink: 0 }}>
+                        {detail.id === 1 && <FaFileContract />}
+                        {detail.id === 2 && <FaClock />}
+                        {detail.id === 3 && <FaCertificate />}
+                      </div>
+                      <div>
+                        <h4 style={{ fontSize: '14px', fontWeight: '700', color: '#132832', margin: '0 0 4px' }}>{detail.label}</h4>
+                        <p style={{ fontSize: '13px', color: '#999', margin: 0, fontStyle: 'italic' }}>{detail.value}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

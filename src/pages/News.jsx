@@ -171,7 +171,7 @@ const News = () => {
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav align-items-center gap-2">
               <li className="nav-item"><Link className="nav-link" to="/" style={{ fontWeight: '600', color: '#333' }}>Home</Link></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Causes</a></li>
+              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Programes</a></li>
               <li className="nav-item"><Link className="nav-link" to="/events" style={{ fontWeight: '600', color: '#333' }}>Events</Link></li>
               <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
               <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
