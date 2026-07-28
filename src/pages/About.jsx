@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { submitVolunteer } from '../services/api';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 
-import { 
-  FaHeart, FaEye, FaCheckCircle, 
-  FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram,
-  FaGooglePlusG, FaArrowUp, FaMapMarkerAlt, FaPinterestP, 
+import {
+  FaHeart, FaEye, FaCheckCircle,
+  FaInstagram,
+  FaGooglePlusG, FaArrowUp,
   FaSearch, FaUser, FaMinus, FaPlus, FaHandsHelping, FaDonate, FaUserPlus, FaBars, FaTimes
 } from 'react-icons/fa';
 
@@ -232,128 +233,7 @@ const About = () => {
         }
       `}</style>
 
-      {/* ----------------- 1. TOP HEADER BAR ----------------- */}
-      <div style={{ backgroundColor: '#132832', color: '#c5d1d7', fontSize: '13px', padding: '10px 0' }}>
-        <div className="container d-flex justify-content-between align-items-center flex-wrap gap-2 top-header-container">
-          
-          <div className="d-flex align-items-center gap-3 flex-wrap justify-content-center">
-            <span>
-              <strong style={{ color: '#e65100' }}>HI,</strong> Good Afternoon!
-            </span>
-            <span className="d-none d-sm-inline" style={{ color: '#3d525d' }}>|</span>
-            <span className="d-flex align-items-center gap-2">
-              <FaMapMarkerAlt style={{ color: '#e65100' }} /> Shiloh, Hawaii 81063
-            </span>
-          </div>
-
-          <div className="d-flex align-items-center gap-3">
-            <span style={{ fontSize: '13px', color: '#8fa0a8' }}>Follow Us –</span>
-            <a href="#" className="top-social-icon"><FaFacebookF /></a>
-            <a href="#" className="top-social-icon"><FaTwitter /></a>
-            <a href="#" className="top-social-icon"><FaPinterestP /></a>
-            <a href="#" className="top-social-icon"><FaLinkedinIn /></a>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ----------------- 2. MAIN NAVIGATION BAR ----------------- */}
-      <nav style={{ backgroundColor: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.05)', padding: '15px 0' }} className="sticky-top">
-        <div className="container d-flex justify-content-between align-items-center">
-          
-          {/* Logo */}
-          <a href="#" className="d-flex align-items-center gap-3 text-decoration-none">
-            <img src={logo} alt="Empower Hopes Logo" style={{ width: '45px', height: '45px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #ffffff', boxShadow: '0 8px 22px rgba(0,0,0,0.12)' }} />
-            <div>
-              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#132832', margin: 0, lineHeight: 1.1, letterSpacing: '0.5px' }}>
-                EMPOWER HOPES
-              </h3>
-              <p style={{ fontSize: '9px', color: '#687b84', fontWeight: '700', margin: 0, letterSpacing: '1px' }}>
-                HUMANITARIAN NETWORK
-              </p>
-            </div>
-          </a>
-
-          {/* Desktop Navigation Links */}
-          <div className="d-none d-lg-flex align-items-center gap-4">
-            <Link to="/" className="nav-link-custom">Home</Link>
-            <a href="#" className="nav-link-custom">Causes</a>
-            <a href="#" className="nav-link-custom">Events</a>
-            <a href="#" className="nav-link-custom">Portfolio</a>
-            <Link to="/about" className="nav-link-custom active">About</Link>
-            <a href="#" className="nav-link-custom">Blog</a>
-          </div>
-
-          {/* Header Action Buttons & Hamburger */}
-          <div className="d-flex align-items-center gap-2 gap-md-3">
-            <button style={{ border: 'none', background: 'transparent', color: '#132832', fontSize: '18px', cursor: 'pointer' }} aria-label="Search">
-              <FaSearch />
-            </button>
-            <button style={{ border: 'none', background: 'transparent', color: '#132832', fontSize: '18px', cursor: 'pointer' }} aria-label="User Profile">
-              <FaUser />
-            </button>
-            
-            <Link 
-              to="/donate" 
-              className="d-none d-sm-inline-block"
-              style={{
-                backgroundColor: '#e65100',
-                color: '#ffffff',
-                fontWeight: '700',
-                fontSize: '13px',
-                padding: '10px 20px',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                letterSpacing: '0.5px',
-                boxShadow: '0 4px 12px rgba(230, 81, 0, 0.25)',
-                transition: 'background-color 0.2s'
-              }}
-            >
-              DONATE NOW
-            </Link>
-
-            {/* Mobile Hamburger Toggle */}
-            <button 
-              className="d-lg-none"
-              onClick={toggleMobileMenu}
-              style={{ border: 'none', background: 'transparent', fontSize: '22px', color: '#132832', cursor: 'pointer', marginLeft: '5px' }}
-              aria-label="Toggle Navigation"
-            >
-              {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
-
-        </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isMobileMenuOpen && (
-          <div className="d-lg-none mobile-menu-drawer" style={{ backgroundColor: '#ffffff', borderTop: '1px solid #eee', padding: '20px 0', marginTop: '15px' }}>
-            <div className="container d-flex flex-column gap-3">
-              <Link to="/" className="nav-link-custom" onClick={toggleMobileMenu}>Home</Link>
-              <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Causes</a>
-              <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Events</a>
-              <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Portfolio</a>
-              <Link to="/about" className="nav-link-custom active" onClick={toggleMobileMenu}>About</Link>
-              <a href="#" className="nav-link-custom" onClick={toggleMobileMenu}>Blog</a>
-              <Link 
-                to="/donate" 
-                className="d-sm-none text-center mt-2"
-                style={{
-                  backgroundColor: '#e65100',
-                  color: '#ffffff',
-                  fontWeight: '700',
-                  padding: '12px',
-                  borderRadius: '6px',
-                  textDecoration: 'none'
-                }}
-                onClick={toggleMobileMenu}
-              >
-                DONATE NOW
-              </Link>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar active="about" />
 
       {/* ----------------- 3. HERO BANNER SECTION ----------------- */}
       <section 
@@ -491,9 +371,9 @@ const About = () => {
                 <p style={{ margin: 0, fontWeight: '600', color: '#132832', fontSize: '14px' }}>Raised by 78,000 people in one year</p>
               </div>
 
-              <a href="#" style={{ backgroundColor: '#132832', color: 'white', padding: '12px 28px', borderRadius: '6px', textDecoration: 'none', fontWeight: '700', display: 'inline-block' }}>
+              <Link to="/causes" style={{ backgroundColor: '#132832', color: 'white', padding: '12px 28px', borderRadius: '6px', textDecoration: 'none', fontWeight: '700', display: 'inline-block' }}>
                 Discover More
-              </a>
+              </Link>
             </div>
 
           </div>
@@ -513,12 +393,22 @@ const About = () => {
 
           <div className="row justify-content-center">
             <div className="col-lg-8">
-              <form className="row g-3">
+              <form className="row g-3" onSubmit={async (e) => {
+                e.preventDefault();
+                setVLoading(true); setVMsg('');
+                try {
+                  const res = await submitVolunteer(vForm);
+                  setVMsg(res.message || 'Registration successful!');
+                  setVForm({ name: '', email: '', phone: '', dateOfBirth: '', message: '' });
+                } catch (err) {
+                  setVMsg(err.message || 'Registration failed. Please try again.');
+                } finally { setVLoading(false); }
+              }}>
                 <div className="col-md-6">
-                  <input type="text" placeholder="Your Name" className="custom-input" />
+                  <input type="text" placeholder="Your Name" className="custom-input" value={vForm.name} onChange={e => setVForm({...vForm, name: e.target.value})} required />
                 </div>
                 <div className="col-md-6">
-                  <input type="email" placeholder="Your Email" className="custom-input" />
+                  <input type="email" placeholder="Your Email" className="custom-input" value={vForm.email} onChange={e => setVForm({...vForm, email: e.target.value})} required />
                 </div>
                 <div className="col-md-6">
                   <input type="text" placeholder="Phone Number" className="custom-input" />
@@ -527,11 +417,12 @@ const About = () => {
                   <input type="date" className="custom-input" />
                 </div>
                 <div className="col-12">
-                  <textarea rows="4" placeholder="Message" className="custom-input"></textarea>
+                  <textarea rows="4" placeholder="Message" className="custom-input" value={vForm.message} onChange={e => setVForm({...vForm, message: e.target.value})}></textarea>
                 </div>
                 <div className="col-12 text-center mt-4">
-                  <button type="button" style={{ backgroundColor: '#e65100', color: 'white', border: 'none', padding: '14px 40px', fontWeight: '700', borderRadius: '6px', cursor: 'pointer', width: '100%', maxWidth: '250px' }}>
-                    SUBMIT NOW
+                  {vMsg && <p style={{ color: vMsg.includes('success') || vMsg.includes('Registered') ? '#3cd49b' : '#ff544a', marginBottom: '12px', fontWeight: 600 }}>{vMsg}</p>}
+                  <button type="submit" disabled={vLoading} style={{ backgroundColor: '#e65100', color: 'white', border: 'none', padding: '14px 40px', fontWeight: '700', borderRadius: '6px', cursor: 'pointer', width: '100%', maxWidth: '250px', opacity: vLoading ? 0.7 : 1 }}>
+                    {vLoading ? 'Submitting...' : 'SUBMIT NOW'}
                   </button>
                 </div>
               </form>
@@ -698,23 +589,23 @@ const About = () => {
 
             <div className="col-lg-2 col-md-6 col-6">
               <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '20px' }}>About</h4>
-              <a href="#" className="footer-link">Home</a>
-              <a href="#" className="footer-link">Donation</a>
-              <a href="#" className="footer-link">About us</a>
+              <Link to="/" className="footer-link">Home</Link>
+              <Link to="/donate" className="footer-link">Donation</Link>
+              <Link to="/about" className="footer-link">About us</Link>
             </div>
 
             <div className="col-lg-2 col-md-6 col-6">
               <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '20px' }}>Quick links</h4>
-              <a href="#" className="footer-link">Causes</a>
-              <a href="#" className="footer-link">About</a>
-              <a href="#" className="footer-link">Stories</a>
+              <Link to="/causes" className="footer-link">Causes</Link>
+              <Link to="/about" className="footer-link">About</Link>
+              <Link to="/blog" className="footer-link">Stories</Link>
             </div>
 
             <div className="col-lg-2 col-md-6 col-6">
               <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '20px' }}>Explore</h4>
-              <a href="#" className="footer-link">Donate</a>
-              <a href="#" className="footer-link">Campaigns</a>
-              <a href="#" className="footer-link">Volunteers</a>
+              <Link to="/donate" className="footer-link">Donate</Link>
+              <Link to="/causes" className="footer-link">Campaigns</Link>
+              <a href="#volunteer" className="footer-link">Volunteers</a>
             </div>
 
             <div className="col-lg-3 col-md-6">

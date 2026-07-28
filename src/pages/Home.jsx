@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import { submitVolunteer } from '../services/api';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpeg';
-import { 
-  FaFacebookF, FaTwitter, FaPinterestP, FaLinkedinIn, FaMapMarkerAlt, 
-  FaSearch, FaRegUser, FaHeart, FaHandshake, FaPlay, FaChevronUp,
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import {
+  FaHeart, FaHandshake, FaPlay, FaChevronUp,
   FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt
 } from 'react-icons/fa';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('mission');
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [volunteerForm, setVolunteerForm] = useState({ name: '', email: '', phone: '', dateOfBirth: '', message: '' });
+  const [volunteerMsg, setVolunteerMsg] = useState('');
+  const [volunteerLoading, setVolunteerLoading] = useState(false);
 
   const tabContents = {
     mission: "Our Mission: There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or random aset words which don't look even slightly believable.",
@@ -205,68 +209,7 @@ const Home = () => {
         }
       `}</style>
 
-      {/* 1. Envato Market Top Bar */}
-      <div style={{ backgroundColor: '#262626', fontSize: '13px' }} className="py-2 px-4 d-flex justify-content-between align-items-center text-white">
-        <div className="fw-bold">
-          envato<span style={{ color: '#82b440' }}>market</span>
-        </div>
-        <button style={{ backgroundColor: '#82b440', color: 'white', border: 'none', padding: '3px 12px', borderRadius: '4px', fontWeight: '600', fontSize: '12px' }}>
-          Buy now
-        </button>
-      </div>
-
-      {/* 2. Mini Info Header Bar */}
-      <div style={{ backgroundColor: '#162a35', color: '#c5c5c5', fontSize: '13px' }} className="py-2 px-4 d-flex flex-wrap justify-content-between align-items-center">
-        <div className="d-flex align-items-center gap-3">
-          <span>
-            <span style={{ color: '#e65c00', fontWeight: 'bold' }}>HI</span>, Good Afternoon!
-          </span>
-          <span className="text-secondary">|</span>
-          <span className="d-flex align-items-center gap-1">
-            <FaMapMarkerAlt className="text-danger" /> Shiloh, Hawaii 81063
-          </span>
-        </div>
-        <div className="d-flex align-items-center gap-3">
-          <span>Follow Us -</span>
-          <div className="d-flex gap-3">
-            <a href="#" style={{ color: '#8c8c8c' }}><FaFacebookF /></a>
-            <a href="#" style={{ color: '#8c8c8c' }}><FaTwitter /></a>
-            <a href="#" style={{ color: '#8c8c8c' }}><FaPinterestP /></a>
-            <a href="#" style={{ color: '#8c8c8c' }}><FaLinkedinIn /></a>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Sticky Main Navigation Bar */}
-      <nav className="navbar navbar-expand-lg navbar-light py-3" style={{ position: 'sticky', top: 0, zIndex: 1050, backgroundColor: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(10px)', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)' }}>
-        <div className="container-fluid px-4">
-          <a className="navbar-brand d-flex align-items-center gap-2" href="#">
-                        <img src={logo} alt="Empower Hopes Logo" style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover" }} />
-            <div>
-              <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#162a35', margin: 0, letterSpacing: '0.5px' }}>EMPOWER HOPES</h4>
-              <p style={{ fontSize: '10px', color: '#555', fontWeight: '600', margin: 0, letterSpacing: '1px' }}>HUMANITARIAN NETWORK</p>
-            </div>
-          </a>
-
-          <div className="collapse navbar-collapse justify-content-end">
-            <ul className="navbar-nav align-items-center gap-2">
-              <li className="nav-item"><Link className="nav-link active" to="/" style={{ fontWeight: '600', color: '#e65c00' }}>Home</Link></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Causes</a></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Events</a></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Portfolio</a></li>
-              <li className="nav-item"><Link className="nav-link" to="/about" style={{ fontWeight: '600', color: '#333' }}>About</Link></li>
-              <li className="nav-item"><a className="nav-link" href="#" style={{ fontWeight: '600', color: '#333' }}>Blog</a></li>
-            </ul>
-            <div className="d-flex align-items-center ms-lg-4">
-              <button style={{ background: 'none', border: 'none', color: '#333', fontSize: '18px' }} className="px-2"><FaSearch /></button>
-              <button style={{ background: 'none', border: 'none', color: '#333', fontSize: '18px' }} className="px-2 me-3"><FaRegUser /></button>
-              <Link to="/donate" style={{ backgroundColor: '#d9531e', color: 'white', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>
-                DONATE NOW
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar active="home" />
 
       {/* 4. Hero Section */}
       <section style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1920')", backgroundSize: 'cover', backgroundPosition: 'center', height: '550px' }} className="d-flex align-items-center justify-content-center text-center text-white">
@@ -721,33 +664,49 @@ const Home = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
               </p>
 
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={async (e) => {
+                e.preventDefault();
+                setVolunteerLoading(true);
+                setVolunteerMsg('');
+                try {
+                  const res = await submitVolunteer(volunteerForm);
+                  setVolunteerMsg(res.message || 'Registered successfully!');
+                  setVolunteerForm({ name: '', email: '', phone: '', dateOfBirth: '', message: '' });
+                } catch (err) {
+                  setVolunteerMsg(err.message || 'Registration failed. Please try again.');
+                } finally {
+                  setVolunteerLoading(false);
+                }
+              }}>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Your Name</label>
-                    <input type="text" className="volunteer-input" placeholder="Your Name" />
+                    <input type="text" className="volunteer-input" placeholder="Your Name" value={volunteerForm.name} onChange={e => setVolunteerForm({...volunteerForm, name: e.target.value})} required />
                   </div>
                   <div className="col-md-6">
                     <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Your Email</label>
-                    <input type="email" className="volunteer-input" placeholder="Email Address" />
+                    <input type="email" className="volunteer-input" placeholder="Email Address" value={volunteerForm.email} onChange={e => setVolunteerForm({...volunteerForm, email: e.target.value})} required />
                   </div>
                   <div className="col-md-6">
                     <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Phone Number</label>
-                    <input type="text" className="volunteer-input" placeholder="Phone Number" />
+                    <input type="text" className="volunteer-input" placeholder="Phone Number" value={volunteerForm.phone} onChange={e => setVolunteerForm({...volunteerForm, phone: e.target.value})} required />
                   </div>
                   <div className="col-md-6">
                     <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Date Of Birth</label>
-                    <input type="date" className="volunteer-input" placeholder="dd/mm/yyyy" />
+                    <input type="date" className="volunteer-input" value={volunteerForm.dateOfBirth} onChange={e => setVolunteerForm({...volunteerForm, dateOfBirth: e.target.value})} />
                   </div>
                   <div className="col-12">
                     <label style={{ fontSize: '13.5px', fontWeight: '500', marginBottom: '8px', display: 'block' }}>Message</label>
-                    <textarea className="volunteer-input" rows="4" placeholder="Write Your Messages"></textarea>
+                    <textarea className="volunteer-input" rows="4" placeholder="Write Your Messages" value={volunteerForm.message} onChange={e => setVolunteerForm({...volunteerForm, message: e.target.value})}></textarea>
                   </div>
                   <div className="col-12 mt-2">
                     <div style={{ position: 'relative', display: 'inline-block' }}>
                       <div style={{ position: 'absolute', left: '-4px', top: '4px', width: '100%', height: '100%', borderRadius: '5px', border: '2px dashed #ff544a', zIndex: 1 }}></div>
-                      <button type="submit" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '14px 34px', border: 'none', borderRadius: '5px', letterSpacing: '0.5px', position: 'relative', zIndex: 2 }}>
-                        SUBMIT NOW
+                      {volunteerMsg && (
+                        <p style={{ color: volunteerMsg.includes('success') || volunteerMsg.includes('Registered') ? '#3cd49b' : '#ff544a', marginBottom: '10px', fontWeight: 600 }}>{volunteerMsg}</p>
+                      )}
+                      <button type="submit" disabled={volunteerLoading} style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '14px 34px', border: 'none', borderRadius: '5px', letterSpacing: '0.5px', position: 'relative', zIndex: 2, opacity: volunteerLoading ? 0.7 : 1 }}>
+                        {volunteerLoading ? 'Submitting...' : 'SUBMIT NOW'}
                       </button>
                     </div>
                   </div>
@@ -960,8 +919,10 @@ const Home = () => {
         </div>
       </section>
 
+      <Footer />
+
       {/* Back To Top Arrow Button */}
-      <button 
+      <button
         style={{ position: 'fixed', right: '30px', bottom: '25px', backgroundColor: '#ff544a', color: 'white', width: '45px', height: '45px', border: 'none', borderRadius: '4px', zIndex: 2000 }}
         className="d-flex align-items-center justify-content-center"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

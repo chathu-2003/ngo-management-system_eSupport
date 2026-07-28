@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 // Bootstrap විතරක් import කරන්න
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Set browser tab title on app load
 document.title = 'EMPOWER HOPES HUMAINITARIAN NETWORK';
