@@ -5,7 +5,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import {
   FaHeart, FaHandshake, FaPlay, FaChevronUp,
-  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt
+  FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt,
+  FaQuoteLeft, FaArrowRight
 } from 'react-icons/fa';
 
 const Home = () => {
@@ -134,6 +135,62 @@ const Home = () => {
     { id: 3, src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300", alt: "Older volunteer with grey hair", color: "#ff544a" }
   ];
 
+  // ====== Success Stories data (NGO donation-impact focused) ======
+  const successStories = [
+    {
+      id: 1,
+      name: "Amara Perera",
+      role: "Funded by Education Sponsors",
+      src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600",
+      alt: "Young girl who benefited from an education sponsorship",
+      story: "When Amara's family could no longer afford school fees, donors from our Education Fund stepped in. Today she has finished her nursing degree and works at her village clinic, giving back to the very community that once supported her.",
+      color: "#ff544a"
+    },
+    {
+      id: 2,
+      name: "Nimal Silva's Village",
+      role: "Clean Water For All Children Project",
+      src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600",
+      alt: "Villager standing beside a newly built water well",
+      story: "Through contributions to our Water For All Children cause, a new well was built for Nimal's village. Over 300 families now walk minutes instead of hours to reach clean, safe drinking water.",
+      color: "#3cd49b"
+    },
+    {
+      id: 3,
+      name: "Sithara Fernando",
+      role: "Supported Through The Rights Of Children Cause",
+      src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600",
+      alt: "Woman who was helped through a child-protection and livelihood programme",
+      story: "Sithara was one of the first children enrolled in our protection programme years ago. With continued donor support into adulthood, she now runs a small community workshop that trains and employs other young women from the same background.",
+      color: "#ffb83b"
+    }
+  ];
+  // ====== END ======
+
+  // ====== Impact Highlights data ======
+  const impactHighlights = [
+    { id: 1, label: "Communities Supported", icon: <FaGlobeAmericas />, color: "#ff544a" },
+    { id: 2, label: "Active Volunteers", icon: <FaUsers />, color: "#3cd49b" },
+    { id: 3, label: "Lives Impacted", icon: <FaHandHoldingHeart />, color: "#ffb83b" },
+    { id: 4, label: "Entrepreneurs Supported", icon: <FaBriefcase />, color: "#ff544a" },
+    { id: 5, label: "Environmental Initiatives", icon: <FaSeedling />, color: "#3cd49b" },
+    { id: 6, label: "Educational Programs", icon: <FaGraduationCap />, color: "#ffb83b" },
+    { id: 7, label: "Community Partnerships", icon: <FaHandshake />, color: "#ff544a" }
+  ];
+  // ====== END ======
+
+  // ====== Featured Campaigns data ======
+  const featuredCampaigns = [
+    { id: 1, title: "Women's Economic Empowerment", desc: "Helping women build sustainable incomes through skills training and micro-financing.", icon: <FaBriefcase />, color: "#ff544a" },
+    { id: 2, title: "Children's Education Initiative", desc: "Giving every child access to quality schooling, books, and mentorship.", icon: <FaGraduationCap />, color: "#3cd49b" },
+    { id: 3, title: "Emergency Disaster Relief", desc: "Rapid response support for communities affected by natural disasters.", icon: <FaAmbulance />, color: "#ffb83b" },
+    { id: 4, title: "Community Mental Health Programme", desc: "Counselling and wellbeing support for individuals and families in need.", icon: <FaBrain />, color: "#ff544a" },
+    { id: 5, title: "Green Communities Initiative", desc: "Tree-planting, clean energy, and sustainability projects led by locals.", icon: <FaLeaf />, color: "#3cd49b" },
+    { id: 6, title: "Entrepreneurship & Small Business Support", desc: "Mentorship and seed funding for aspiring local entrepreneurs.", icon: <FaStore />, color: "#ffb83b" },
+    { id: 7, title: "Animal Welfare Programme", desc: "Protecting and caring for vulnerable and displaced animals.", icon: <FaPaw />, color: "#ff544a" }
+  ];
+  // ====== END ======
+
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: '#fcfbf9', position: 'relative' }}>
       
@@ -207,6 +264,69 @@ const Home = () => {
           background-color: #ff544a;
           color: white;
         }
+
+        /* Success Story card hover */
+        .success-story-card {
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .success-story-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Impact highlight card hover */
+        .impact-highlight-card {
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .impact-highlight-card:hover {
+          transform: translateY(-6px);
+          background-color: rgba(255,255,255,0.05);
+        }
+
+        /* Campaign card hover */
+        .campaign-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .campaign-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        /* CTA button hover */
+        .cta-btn {
+          transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+        .cta-btn:hover {
+          transform: translateY(-4px);
+          opacity: 0.92;
+        }
+
+        /* Footer link hover */
+        .footer-link {
+          color: #b7b7b7;
+          text-decoration: none;
+          transition: color 0.2s ease, padding-left 0.2s ease;
+          display: inline-block;
+        }
+        .footer-link:hover {
+          color: #ff544a;
+          padding-left: 4px;
+        }
+        .footer-social-icon {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: rgba(255,255,255,0.06);
+          color: #d0d0d0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .footer-social-icon:hover {
+          background-color: #ff544a;
+          color: white;
+        }
       `}</style>
 
       <Navbar active="home" />
@@ -225,6 +345,28 @@ const Home = () => {
             <Link to="/donate" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>Donate Now</Link>
             <Link to="/contact" style={{ backgroundColor: '#ffb83b', color: 'white', fontWeight: '700', padding: '14px 32px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>Contact Us</Link>
           </div>
+        </div>
+      </section>
+
+      {/* 4.2 Our Mission Section */}
+      <section style={{ padding: '80px 0', backgroundColor: '#ffffff' }} className="text-center">
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            Our Purpose
+          </span>
+          <div className="d-inline-block mb-4 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+              Our Mission
+            </h2>
+            <div style={{ width: '60%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+          <p style={{ fontSize: '15.5px', color: '#666', maxWidth: '820px', margin: '0 auto', lineHeight: '1.9' }}>
+            Empower Hopes Humanitarian Network is committed to empowering vulnerable individuals and communities through sustainable humanitarian initiatives that promote dignity, resilience, equality, and long-term social development. We work across education, healthcare, livelihoods, mental wellbeing, environmental sustainability, disaster response, entrepreneurship, and community empowerment to create lasting positive change.
+          </p>
         </div>
       </section>
 
@@ -487,6 +629,48 @@ const Home = () => {
         </div>
       </section>
 
+      {/* 5.5 Featured Campaigns Section */}
+      <section style={{ padding: '80px 0', backgroundColor: '#ffffff' }} className="text-center">
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            What We're Running
+          </span>
+          <div className="d-inline-block mb-3 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+              Featured Campaigns
+            </h2>
+            <div style={{ width: '60%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+          <p style={{ fontSize: '15px', color: '#7e7e7e', maxWidth: '680px', margin: '15px auto 55px auto', lineHeight: '1.7' }}>
+            Seven active campaigns, each one a direct line between a donor's generosity and a real community need.
+          </p>
+
+          <div className="row g-4 text-start">
+            {featuredCampaigns.map((c) => (
+              <div className="col-xl-3 col-lg-4 col-md-6" key={c.id}>
+                <div className="campaign-card" style={{ background: '#fdfbf7', borderRadius: '10px', border: '1px solid #f0ede6', height: '100%', padding: '32px 26px' }}>
+                  <div
+                    style={{
+                      width: '58px', height: '58px', borderRadius: '50%', backgroundColor: c.color,
+                      color: 'white', fontSize: '22px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      marginBottom: '20px', boxShadow: `0 8px 18px ${c.color}40`
+                    }}
+                  >
+                    {c.icon}
+                  </div>
+                  <h4 style={{ fontSize: '17px', fontWeight: '700', color: '#1c2d37', marginBottom: '10px', lineHeight: '1.3' }}>{c.title}</h4>
+                  <p style={{ fontSize: '13.5px', color: '#7e7e7e', lineHeight: '1.7', margin: 0 }}>{c.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 6. About Us Section */}
       <section style={{ padding: '120px 0 80px 0', backgroundColor: '#ffffff' }}>
         <div className="container">
@@ -528,6 +712,47 @@ const Home = () => {
               </div>
               <button style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', fontSize: '13px', padding: '16px 35px', borderRadius: '5px', border: 'none' }}>Discover More</button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.5 Impact Highlights Section */}
+      <section style={{ backgroundColor: '#161616', padding: '80px 0' }} className="text-center">
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            Our Reach
+          </span>
+          <div className="d-inline-block mb-3 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: 'white', margin: 0 }}>
+              Impact Highlights
+            </h2>
+            <div style={{ width: '55%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+          <p style={{ fontSize: '15px', color: '#aaaaaa', maxWidth: '680px', margin: '15px auto 50px auto', lineHeight: '1.7' }}>
+            A quick look at where our work reaches, thanks entirely to our donors and volunteers.
+          </p>
+
+          <div className="row g-4">
+            {impactHighlights.map((item) => (
+              <div className="col-lg-3 col-md-4 col-6" key={item.id}>
+                <div className="impact-highlight-card" style={{ padding: '28px 12px', borderRadius: '10px', border: '1px solid #2a2a2a', height: '100%' }}>
+                  <div
+                    style={{
+                      width: '54px', height: '54px', borderRadius: '50%', backgroundColor: item.color,
+                      color: 'white', fontSize: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      margin: '0 auto 16px auto'
+                    }}
+                  >
+                    {item.icon}
+                  </div>
+                  <p style={{ color: '#e6e6e6', fontSize: '14px', fontWeight: '600', margin: 0, lineHeight: '1.4' }}>{item.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -595,11 +820,17 @@ const Home = () => {
                   <img
                     src={img.src}
                     alt={img.alt}
-                    style={{ width: '100%', height: '340px', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '340px', objectFit: 'cover', display: 'block', cursor: 'pointer' }}
                   />
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-5 text-center">
+            <Link to="/events" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 35px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-block' }}>
+              View All Events
+            </Link>
           </div>
         </div>
       </section>
@@ -915,6 +1146,56 @@ const Home = () => {
               <h4 style={{ fontSize: '20px', fontWeight: '800', color: 'white', marginTop: '25px' }}>Ralph Alfred</h4>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories Section */}
+      <section id="success-stories" style={{ padding: '90px 0 100px 0', backgroundColor: '#fdfbf7' }} className="text-center">
+        <div className="container">
+          <span style={{ fontFamily: "'Caveat', cursive", color: '#ff544a', fontSize: '32px', display: 'block' }}>
+            Real Impact
+          </span>
+
+          <div className="d-inline-block mb-3 position-relative">
+            <h2 style={{ fontSize: '42px', fontWeight: '800', color: '#1c2d37', margin: 0 }}>
+              Our Success Stories
+            </h2>
+            <div style={{ width: '60%', height: '8px', margin: '4px auto 0 auto' }}>
+              <svg viewBox="0 0 100 10" width="100%" height="100%" preserveAspectRatio="none">
+                <path d="M0,5 Q25,0 50,5 T100,5" fill="none" stroke="#ffb83b" strokeWidth="4" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '15px', color: '#7e7e7e', maxWidth: '680px', margin: '15px auto 55px auto', lineHeight: '1.7' }}>
+            As a non-profit, every project you see here was made possible only because of generous donors. These are a few of the lives changed by that generosity.
+          </p>
+
+          <div className="row g-4 text-start">
+            {successStories.map((s) => (
+              <div className="col-lg-4 col-md-6" key={s.id}>
+                <div className="success-story-card" style={{ background: 'white', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.06)', height: '100%' }}>
+                  <div style={{ position: 'relative' }}>
+                    <img src={s.src} alt={s.alt} style={{ width: '100%', height: '230px', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ position: 'absolute', left: '20px', bottom: '-22px', width: '44px', height: '44px', borderRadius: '50%', backgroundColor: s.color, color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 20px rgba(0,0,0,0.25)' }}>
+                      <FaQuoteLeft size={16} />
+                    </div>
+                  </div>
+                  <div className="p-4 pt-5">
+                    <h4 style={{ fontSize: '18px', fontWeight: '700', color: '#1c2d37', marginBottom: '4px' }}>{s.name}</h4>
+                    <span style={{ fontSize: '13px', fontWeight: '600', color: s.color }}>{s.role}</span>
+                    <p style={{ fontSize: '14px', color: '#777', lineHeight: '1.7', marginTop: '14px' }}>{s.story}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 text-center">
+            <Link to="/success-stories" style={{ backgroundColor: '#ff544a', color: 'white', fontWeight: '700', padding: '14px 35px', borderRadius: '5px', border: 'none', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              View All Stories <FaArrowRight size={13} />
+            </Link>
           </div>
         </div>
       </section>

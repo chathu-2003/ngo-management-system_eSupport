@@ -14,6 +14,10 @@ import Gallery from './pages/Gallery';
 import Marketplace from './pages/Marketplace';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import Stories from './pages/Stories';
+import News from './pages/News';
+import Projects from './pages/Projects';
+import Programe from './pages/Programe';
 
 import Dashboard from './pages/admin/Dashboard';
 import AdminContacts from './pages/admin/AdminContacts';
@@ -54,6 +58,10 @@ function App() {
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/success-stories" element={<Stories />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/programe" element={<Programe />} />
 
           {/* Admin routes */}
           <Route path="/admin" element={<ProtectedRoute adminOnly><Dashboard /></ProtectedRoute>} />

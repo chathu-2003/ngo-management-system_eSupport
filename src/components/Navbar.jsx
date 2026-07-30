@@ -5,11 +5,15 @@ import { FaSearch, FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const NAV_ITEMS = [
   { key: "home", label: "Home", to: "/" },
+  { key: "programe", label: "Programs", to: "/programe" },
   { key: "causes", label: "Causes", to: "/causes" },
   { key: "events", label: "Events", to: "/events" },
+  { key: "projects", label: "Projects", to: "/projects" },
   { key: "gallery", label: "Portfolio", to: "/gallery" },
   { key: "about", label: "About", to: "/about" },
+  { key: "news", label: "News", to: "/news" },
   { key: "blog", label: "Blog", to: "/blog" },
+  { key: "stories", label: "Success Stories", to: "/success-stories" },
 ];
 
 export default function Navbar({ active }) {
