@@ -176,8 +176,8 @@ export default function ContactUsPage() {
         <div style={styles.infoCard}>
           <div style={{ ...styles.iconCircle, ...styles.phoneIcon }}><i className="fa-solid fa-phone"></i></div>
           <h3 style={styles.cardHeading}>Phone Number</h3>
-          <p style={styles.cardText}>+ (321) 984 754</p>
-          <p style={styles.cardText}>+1-212-9876543</p>
+          <p style={styles.cardText}>+9475 9000317</p>
+        
         </div>
 
         <div style={styles.infoCard}>

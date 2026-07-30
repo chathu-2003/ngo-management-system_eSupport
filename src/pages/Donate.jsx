@@ -108,7 +108,6 @@ export default function DonatePage() {
   ];
 
   const tags = ['Charity', 'African people', 'Community', 'Food', 'Clean Water', 'Education', 'Health', 'Volunteers', 'Homeless child'];
-
   return (
     <div style={styles.bodyWrapper}>
       {/* --- INLINE RESPONSIVE CSS & HOVER OVERRIDES --- */}
