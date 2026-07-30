@@ -317,6 +317,7 @@ export default function DonatePage() {
                     <span onClick={() => setRecurringFrequency(freq)} style={{ cursor: 'pointer' }}>{freq}</span>
                   </label>
                 ))}
+                
               </div>
             )}
 
