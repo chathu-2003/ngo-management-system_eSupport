@@ -33,4 +33,26 @@ const adminOnly = (req, res, next) => {
   return res.status(403).json({ success: false, message: 'Admin access required.' });
 };
 
-module.exports = { protect, adminOnly };
+const optionalAuth = async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return next();
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findByPk(decoded.id, { attributes: { exclude: ['password'] } });
+    if (user && user.isActive) {
+      req.user = user;
+    }
+  } catch {
+    // Invalid/expired token on an optional-auth route: proceed unauthenticated.
+  }
+
+  next();
+};
+
+module.exports = { protect, adminOnly, optionalAuth };
