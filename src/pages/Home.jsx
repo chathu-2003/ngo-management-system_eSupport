@@ -6,7 +6,9 @@ import Footer from '../components/Footer';
 import {
   FaHeart, FaHandshake, FaPlay, FaChevronUp,
   FaChevronLeft, FaChevronRight, FaRegHeart, FaGift, FaShareAlt,
-  FaQuoteLeft, FaArrowRight
+  FaQuoteLeft, FaArrowRight, FaGlobeAmericas, FaUsers, FaHandHoldingHeart,
+  FaBriefcase, FaSeedling, FaGraduationCap, FaAmbulance, FaBrain, FaLeaf,
+  FaStore, FaPaw
 } from 'react-icons/fa';
 
 const Home = () => {

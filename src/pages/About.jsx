@@ -1,37 +1,22 @@
 import React, { useState } from 'react';
 import { submitVolunteer } from '../services/api';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpeg';
 import Navbar from '../components/Navbar';
 
 import {
-  FaHeart, FaEye, FaCheckCircle,
-  FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram,
-  FaGooglePlusG, FaArrowUp, FaMapMarkerAlt, FaPinterestP,
-  FaSearch, FaUser, FaMinus, FaPlus, FaHandsHelping, FaDonate, FaUserPlus, FaBars, FaTimes,
-  FaBullseye, FaFlag, FaHistory, FaUserTie, FaFileContract, FaCertificate, FaBuilding, FaClock
+  FaHeart, FaEye,
+  FaArrowUp,
+  FaMinus, FaPlus, FaHandsHelping, FaDonate, FaUserPlus,
+  FaBullseye, FaHistory, FaUserTie, FaFileContract, FaCertificate, FaBuilding, FaClock
 } from 'react-icons/fa';
 
 const About = () => {
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState(0);
-  // Mobile Nav Toggle State
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const stats = [
-    { id: 1, number: "15K+", label: "Happy Children", bgColor: '#ffedf0', textColor: '#ff544a' },
-    { id: 2, number: "25+", label: "Years Experience", bgColor: '#fff7e6', textColor: '#ffb83b' },
-    { id: 3, number: "120+", label: "Global Awards", bgColor: '#e6f9f0', textColor: '#3cd49b' },
-    { id: 4, number: "100%", label: "Transparency", bgColor: '#e6f2ff', textColor: '#2575fc' }
-  ];
 
   const features = [
     {
